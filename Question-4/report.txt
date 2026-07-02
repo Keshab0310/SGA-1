@@ -1,0 +1,21 @@
+Open files identified
+Command: lsof | head -n 15
+Explanation: I ran lsof with head to see what files are actively being kept open by background processes like systemd and init. Since I ran this as a normal user, it shows "Permission denied" for root process details, which makes sense from a security standpoint.
+
+File descriptor observations
+Command: ls -l /proc/self/fd
+Explanation: I checked the /proc/self/fd directory to observe active file descriptors for the running terminal session. The entries 0, 1, and 2 map directly to standard input, standard output, and standard error, all pointing to my current terminal screen (/dev/pts/0).
+
+Output redirection and error redirection results
+Commands:
+
+echo "System log entries initialized." > output.log
+ls /nonexistent_directory 2> error.log
+Explanation: I tested stream redirection using > and 2>. The first command saved standard output text cleanly inside output.log, and the second command caught a broken directory error and dumped the failure message directly into error.log instead of letting it print on the screen.
+
+Resource limits observed
+Command: ulimit -a
+Explanation: I executed ulimit -a to review my account's core system constraint rules. The most important metric here for I/O tracking is the "open files" threshold, which shows my session is capped at a maximum of 10,240 open files at any single time.
+
+Explanation of how Linux manages file I/O
+Explanation: Linux simplifies input and output tracking by treating almost everything—including hardware devices, terminal screens, and basic text sheets—as files. The operating system handles these assets by assigning small integer tags called file descriptors to active processes, routing standard streams (0, 1, and 2) to either terminal interfaces or physical storage files using simple redirection rules.

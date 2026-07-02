@@ -4,19 +4,14 @@ Explanation: I ran ls -li to view the index allocation numbers (inodes) for all 
 
 Comparison between hard link and symbolic link
 Commands:
-
 ln original.txt hardlink.txt
-
 ln -s original.txt symlink.txt
 Explanation: I created a hard link and a symbolic link to compare how they track the source file. The hard link creates a direct pointer to the existing data on the disk, while the symbolic link works like a shortcut, simply pointing to the text filename of the original file.
 
 Effect of deleting the original file
 Commands:
-
 rm original.txt
-
 cat hardlink.txt
-
 cat symlink.txt
 Explanation: After deleting original.txt, running cat hardlink.txt still worked and printed out the text because its link to inode 524 remained intact. However, cat symlink.txt broke and returned an error because its target path string was gone, creating a broken link.
 
