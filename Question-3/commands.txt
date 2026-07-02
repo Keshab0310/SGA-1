@@ -1,0 +1,25 @@
+1. echo "Original Source Data" > original.txt
+output: (no output is shown but original.txt fileis created with the given text)
+
+2. ln original.txt hardlink.txt
+output:(no output is shown but hardlink for the original.txtis created as hardlink.txt)
+
+3. ln -s original.txt symlink.txt
+output:(no output is shown but shortcut for original.txt is creaated as symlink.txt)
+
+4.ls -li original.txt hardlink.txt symlink.txt
+output:
+ 524 -rw-r--r-- 2 mazino mazino 21 Jul  2 14:09 hardlink.txt
+ 524 -rw-r--r-- 2 mazino mazino 21 Jul  2 14:09 original.txt
+5419 lrwxrwxrwx 1 mazino mazino 12 Jul  2 14:10 symlink.txt -> original.txt
+
+5. rm original.txt
+output: (no output is shown but removed original.txt)
+
+6. cat hardlink.txt
+output:
+Original Source Data
+
+7. cat symlink.txt
+output:
+cat: symlink.txt: No such file or directory
