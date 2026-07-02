@@ -1,0 +1,19 @@
+1. Check Username and Groups
+Command: id
+Explanation: I ran the id command to verify my current account privileges. The output shows my username is mazino (UID 1000) and confirms I'm part of the sudo group, which means I have administrator rights on this system.
+
+2. Check Current Shell
+Command: echo $SHELL
+Explanation: I used this command to check which command-line shell is currently active. The system returned /bin/bash, showing that I am using the standard Bash shell for this session.
+
+3. Check Current Working Directory
+Command: pwd
+Explanation: I executed pwd to see exactly where I am in the file system before creating any new project files. The output shows I am currently inside my main user home directory at /home/mazino.
+
+4. List Files and Directories
+Command: ls -la
+Explanation: I used ls -la to get a full list of all files and folders in my workspace, including hidden configuration files. Looking at the symlinks like .aws -> /mnt/c/..., I can also see that this environment is running on WSL (Windows Subsystem for Linux).
+
+5. Verify Network Connectivity
+Command: ping -c 4 google.com
+Explanation: I sent 4 network packets to Google's servers to test if my internet connection is working properly inside the terminal. All 4 packets were successfully returned with 0% packet loss, confirming the network configuration is stable.
