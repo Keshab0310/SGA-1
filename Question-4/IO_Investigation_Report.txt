@@ -19,3 +19,8 @@ Explanation: I executed ulimit -a to review my account's core system constraint 
 
 Explanation of how Linux manages file I/O
 Explanation: Linux simplifies input and output tracking by treating almost everything—including hardware devices, terminal screens, and basic text sheets—as files. The operating system handles these assets by assigning small integer tags called file descriptors to active processes, routing standard streams (0, 1, and 2) to either terminal interfaces or physical storage files using simple redirection rules.
+
+Technical Observation:
+a. Stream Tracking: File descriptor 0 (stdin), 1 (stdout), and 2 (stderr) all default to /dev/pts/0, showing that input and output are tied to my active pseudo-terminal interface until I explicitly redirect them.
+b. Redirection Behavior: The standard output redirection (>) cleanly overwrites or creates data blocks for a clean file, while error redirection explicitly requires appending the descriptor prefix (2>) to intercept channel 2 away from standard output streams.
+c. Kernel Safeguards: The ulimit profile reveals that the kernel sets a hard threshold of 10,240 open concurrent file descriptors per process to protect shared system memory pools from running out of resources.

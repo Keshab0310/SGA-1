@@ -1,0 +1,15 @@
+Available storage devices
+Command: lsblk
+Explanation: I ran lsblk to view all block storage devices currently mapped to the environment. The root storage is on device sdd, which is a large 1TB drive, and sdc is assigned as the swap space.
+
+Mounted file systems and disk usage statistics
+Command: df -h
+Explanation: I checked the free disk space on all mounted file systems in a human-readable format using df -h. My main root folder on /dev/sdd has 951GB available, showing that the system has plenty of free space left.
+
+Inode utilization
+Command: df -i
+Explanation: I checked inode availability using df -i to make sure the file system structure isn't running out of index numbers. The main drive /dev/sdd is only at 1% inode usage, meaning it can easily handle millions of new files.
+
+Storage health observations and recommendations created using vi editor
+Command: vi Storage_Assessment_Report.txt
+Explanation: I opened the native vi text editor to draft my final assessment report directly inside the server workspace. Inside the editor, I detailed the system health status and noted down optimization recommendations for the server.

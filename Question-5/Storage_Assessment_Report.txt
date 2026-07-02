@@ -1,0 +1,10 @@
+STORAGE HEALTH ASSESSMENT REPORT
+
+1. Storage Health Observations:
+- The main root disk drive (/dev/sdd) has plenty of storage room with only 1% space used.
+- Inode utilization is perfectly fine across all main directories, sitting at 1% usage.
+- Mounted spaces from the Windows host (/mnt/c and /mnt/d) are active and running normally.
+
+2. Recommendations for improving storage utilization:
+- Setup automated log rotations to stop background logs from taking up extra room later on.
+- Keep a regular check on application directories to ensure old cached files get cleared out.
