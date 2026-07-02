@@ -1,0 +1,26 @@
+1. mkdir -p project_workspace/secure_docs
+output: (the folder is created so no output is shown)
+
+2(a). ls -ld project_workspace 
+output:
+drwxr-xr-x 3 mazino mazino 4096 Jul  2 13:14 project_workspace
+
+2(b). chmod 750 project_workspace 
+output:(the permission is changed so no outut is shown)
+
+2(c). chmod 700 project_workspace/secure_docs
+output:(the permission is changed so no outut is shown)
+
+2(d). ls -ld project_workspace project_workspace/secure_docs 
+output:
+drwxr-x--- 3 mazino mazino 4096 Jul  2 13:14 project_workspace
+drwx------ 2 mazino mazino 4096 Jul  2 13:14 project_workspace/secure_docs
+
+3. ls -ld project_workspace project_workspace/secure_docs (ownership details)
+output:
+drwxr-x--- 3 mazino mazino 4096 Jul  2 13:14 project_workspace
+drwx------ 2 mazino mazino 4096 Jul  2 13:14 project_workspace/secure_docs
+
+4. umask
+output:
+0022

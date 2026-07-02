@@ -1,0 +1,26 @@
+Directory structure created
+Command: mkdir -p project_workspace/secure_docs
+Explanation: I used the mkdir command with the -p flag to build the folder layout for the team. This created the main folder (project_workspace) and the hidden subfolder (secure_docs) at the exact same time.
+
+File permissions before and after modification
+Commands:
+
+ls -ld project_workspace
+
+chmod 750 project_workspace
+
+chmod 700 project_workspace/secure_docs
+
+ls -ld project_workspace project_workspace/secure_docs
+Explanation: Initially, the workspace directory had default permissions of drwxr-xr-x, leaving it open for anyone to read. After running the chmod commands, the permissions were updated to drwxr-x--- for the main folder and drwx------ for the secure docs folder, successfully locking it down.
+
+Ownership details
+Command: ls -ld project_workspace project_workspace/secure_docs
+Explanation: The output shows that my user account (mazino) and my primary group (mazino) own both of these directories. This ensures that only my account has full control over modifying these setups.
+
+Umask value used
+Command: umask
+Explanation: I checked the system's default umask value, which is 0022. This value is what automatically assigns permissions of 755 to any new folders I make before I manually change them.
+
+Explanation of how permissions protect project data
+Explanation: By changing the permissions from the default 755 to 750 and 700, we effectively locked down the project assets. Regular system users cannot browse into the main workspace, and the secure_docs folder is completely restricted to the owner alone, preventing unauthorized local users from reading or tampering with sensitive documentation.
